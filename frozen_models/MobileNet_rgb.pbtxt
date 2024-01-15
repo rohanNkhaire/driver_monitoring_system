@@ -1,0 +1,5698 @@
+node {
+  name: "x"
+  op: "Placeholder"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: -1
+        }
+        dim {
+          size: 224
+        }
+        dim {
+          size: 224
+        }
+        dim {
+          size: 3
+        }
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D"
+  op: "Conv2D"
+  input: "x"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_2/Pad"
+  op: "Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_2/Pad/paddings"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tpaddings"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_2/Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_4/Pad"
+  op: "Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_4/Pad/paddings"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tpaddings"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_4/Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_6/Pad"
+  op: "Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_6/Pad/paddings"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tpaddings"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_6/Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_12/Pad"
+  op: "Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_12/Pad/paddings"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tpaddings"
+    value {
+      type: DT_INT32
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pad_12/Pad"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "VALID"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 2
+        i: 2
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise"
+  op: "DepthwiseConv2dNative"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D"
+  op: "Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "dilations"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "explicit_paddings"
+    value {
+      list {
+      }
+    }
+  }
+  attr {
+    key: "padding"
+    value {
+      s: "SAME"
+    }
+  }
+  attr {
+    key: "strides"
+    value {
+      list {
+        i: 1
+        i: 1
+        i: 1
+        i: 1
+      }
+    }
+  }
+  attr {
+    key: "use_cudnn_on_gpu"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp_1/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3"
+  op: "FusedBatchNormV3"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp_1"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "U"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+  attr {
+    key: "epsilon"
+    value {
+      f: 0.0010000000474974513
+    }
+  }
+  attr {
+    key: "exponential_avg_factor"
+    value {
+      f: 1.0
+    }
+  }
+  attr {
+    key: "is_training"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_relu/Relu6"
+  op: "Relu6"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/global_max_pooling2d/Max"
+  op: "Max"
+  input: "mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_relu/Relu6"
+  input: "mobilenetv1_0.25_160_120/global_max_pooling2d/Max/reduction_indices"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/dense/MatMul/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/dense/MatMul/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/dense/MatMul"
+  op: "MatMul"
+  input: "mobilenetv1_0.25_160_120/global_max_pooling2d/Max"
+  input: "mobilenetv1_0.25_160_120/dense/MatMul/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/dense/BiasAdd/ReadVariableOp"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/dense/BiasAdd/ReadVariableOp/resource"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/dense/BiasAdd"
+  op: "BiasAdd"
+  input: "mobilenetv1_0.25_160_120/dense/MatMul"
+  input: "mobilenetv1_0.25_160_120/dense/BiasAdd/ReadVariableOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "data_format"
+    value {
+      s: "NHWC"
+    }
+  }
+}
+node {
+  name: "mobilenetv1_0.25_160_120/dense/Softmax"
+  op: "Softmax"
+  input: "mobilenetv1_0.25_160_120/dense/BiasAdd"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "NoOp"
+  op: "NoOp"
+  input: "^mobilenetv1_0.25_160_120/dense/BiasAdd/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/dense/MatMul/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv1_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_10_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_11_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_12_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_13_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_1_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_2_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_3_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_4_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_5_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_6_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_7_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_8_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9/depthwise/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_dw_9_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_10_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_11_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_12_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_13_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_1_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_2_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_3_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_4_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_5_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_6_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_7_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_8_bn/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9/Conv2D/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/FusedBatchNormV3/ReadVariableOp_1"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp"
+  input: "^mobilenetv1_0.25_160_120/mobilenet_0.25_224/conv_pw_9_bn/ReadVariableOp_1"
+  attr {
+    key: "_has_manual_control_dependencies"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "Identity"
+  op: "Identity"
+  input: "mobilenetv1_0.25_160_120/dense/Softmax"
+  input: "^NoOp"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+library {
+}
+versions {
+  producer: 1482
+}
