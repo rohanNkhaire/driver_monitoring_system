@@ -16,7 +16,7 @@ The dataset is taken from Kagle's [Distracted Driver Detection](https://www.kagg
 - Fed images are RGB(224, 224, 3) with data Augmentation.
 - The total model size **before int8 quantization** is 863.73 KB.
 
-## ShuffleNetv2 ##
+### ShuffleNetv2 ###
 - We used [ShuffleNetV2](https://openaccess.thecvf.com/content_ECCV_2018/html/Ningning_Light-weight_CNN_Architecture_ECCV_2018_paper.html) for training with the same architecture of *0.5%* downsizing.
 - Fed images are grayscale(96, 96, 1) with data augmentation.
 - The total model size **before int8 quantization** is 599.51 KB.
