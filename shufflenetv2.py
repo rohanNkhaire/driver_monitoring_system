@@ -1,6 +1,8 @@
 import os
 import tensorflow as tf
+import keras
 from keras import backend as K
+from keras.utils import image_dataset_from_directory
 from keras_applications.imagenet_utils import _obtain_input_shape
 from keras.models import Model
 from keras.utils import get_source_inputs
@@ -8,10 +10,6 @@ from keras.layers import Activation, Add, Concatenate, Conv2D, GlobalMaxPooling2
 from keras.layers import GlobalAveragePooling2D,Input, Dense
 from keras.layers import MaxPool2D,AveragePooling2D, BatchNormalization, Lambda, DepthwiseConv2D
 import numpy as np
-import imports
-import load_data
-import Preprocessing
-import config
 import cv2
 
 
@@ -154,6 +152,35 @@ def ShuffleNetV2(include_top=True,
 
     return model
 
+# Data preprocessing
+rescale_dataset = tf.keras.Sequential([
+    keras.layers.Rescaling(1./255),
+])
+
+data_augmentation = tf.keras.Sequential([ 
+  keras.layers.RandomFlip("horizontal_and_vertical"),
+  keras.layers.RandomRotation(0.5),
+  keras.layers.RandomZoom(0.5),
+  keras.layers.RandomContrast(0.5),
+  keras.layers.RandomTranslation(0.25, 0.25),
+])
+
+batch_size = 32
+AUTOTUNE = tf.data.AUTOTUNE
+
+def prepare(ds, augment=False):
+  # Resize and rescale all datasets.
+  ds = ds.map(lambda x, y: (rescale_dataset(x), y), 
+              num_parallel_calls=AUTOTUNE)
+
+  # Use data augmentation only on the training set.
+  if augment:
+    ds = ds.map(lambda x, y: (data_augmentation(x, training=True), y), 
+                num_parallel_calls=AUTOTUNE)
+
+  # Use buffered prefetching on all datasets.
+  return ds.prefetch(buffer_size=AUTOTUNE)
+
 # LOAD TRAIN AND TEST DATA----------------------------------------------------------------------------------------------
 # IMAGE PATH ON DISK FOR TRAIN AND TEST IMAGES
 directory = '/home/rohan/Projects/EmbeddedMachineLearning/train_split_gray/train'
@@ -161,13 +188,24 @@ test_directory = '/home/rohan/Projects/EmbeddedMachineLearning/resized_imgs_gray
 classes = ['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9']
 
 # CALL LOAD FUNCTIONS FOR IMAGES
-training_data = load_data.create_training_data(directory, classes)
+t_ds = image_dataset_from_directory(directory,
+                                  validation_split=0.2, label_mode='categorical', subset="training",
+                                  image_size=(96,96), interpolation="mitchellcubic",
+                                  crop_to_aspect_ratio=True, color_mode='grayscale',
+                                  seed=42, shuffle=True, batch_size=64)
 
-# PRE PROCESS IMAGES
-X_train, X_test, y_train, y_test = Preprocessing.pre_process(training_data)
+v_ds = image_dataset_from_directory(directory,
+                                  validation_split=0.2, label_mode='categorical', subset="validation",
+                                  image_size=(96,96), interpolation="mitchellcubic",
+                                  crop_to_aspect_ratio=True, color_mode='grayscale',
+                                  seed=42, shuffle=True, batch_size=64)
+
+# Data preprocessing
+train_ds = prepare(t_ds, True)
+val_ds = prepare(v_ds, True)
 
 # Model
-model = ShuffleNetV2(include_top=True, input_shape=(96,96,1), bottleneck_ratio=0.5, classes=10, load_model=None, scale_factor=0.75)
+model = ShuffleNetV2(include_top=True, input_shape=(96,96,1), bottleneck_ratio=0.5, classes=10, load_model=None, scale_factor=0.5)
 
 model.summary()
 
@@ -183,12 +221,11 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate_schedule)
 
 # COMPILE MODEL---------------------------------------------------------------------------------------------------------
 model.compile(loss='categorical_crossentropy', optimizer=optimizer, metrics=['accuracy'])
-callbacks = [imports.EarlyStopping(monitor='val_accuracy', patience=5)]
-
+#callbacks = [tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)]
 
 # FIT MODEL WITH EPOCHS 12 and using CALLBACKS--------------------------------------------------------------------------
-results = model.fit(X_train, y_train, batch_size= config.BATCH_SIZE, epochs= config.EPOCHS, verbose=1,
-                    validation_data=(X_test,y_test), callbacks=callbacks)
+results = model.fit(train_ds, epochs=200, verbose=1,
+                    validation_data=val_ds)
 
 # save the model
 model.save("shufflenetV2_1.0_96_96")
